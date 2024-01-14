@@ -6,17 +6,27 @@
 /*   By: soluna <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 17:47:11 by soluna            #+#    #+#             */
-/*   Updated: 2024/01/11 17:47:13 by soluna           ###   ########.fr       */
+/*   Updated: 2024/01/13 21:25:27 by soluna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+//#include "libftprintf.h"
 
-char	ft_putstr(char *c)
+void	ft_putstr(char *str)
 {
 	int	i;
 
 	i = 0;
-	while (c[i])
-		write(1, &c[i++], sizeof(c));
+	while (str[i] != '\0')
+	{
+		write(1, str[i], 1);
+		i++;
+	}
+}
+
+int	main()
+{
+	char	*p = "HOLA";
+	ft_putstr(p);
+	return (0);
 }
