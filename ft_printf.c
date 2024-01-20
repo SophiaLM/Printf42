@@ -16,14 +16,16 @@ void	print(char const *str, ...)
 {
 	va_list	argv;
 	va_start(argv, str);
+	size_t	i;
 
-	while (str != '\0')
+	i = 0;
+	while (str[i] != '\0')
 	{
 		if (str == (char *)'%')
 		{
-			if ((str + 1) == (char *)'c')
-				ft_putstr(va_arg(argv, char *));
-			if ((str + 1) == (char *)'s')
+			if (str == (char *)'c')
+				ft_putchar(va_arg(argv, char *));
+			if ((str + 1) == (char *)'s')//str + 1 no le esta sumando una pocision, esta empezando desde +1
 				ft_putstr(va_arg(argv, char *));
 /*			if ((str + 1) == p)
 				ft_putstr(va_arg(argv, ph));
@@ -39,11 +41,19 @@ void	print(char const *str, ...)
 	va_end(argv);
 }
 
-int	ft_printf(char const *ph, ...)
+
+int	ft_printf(char const *str, ...)
 {
-	while (ph != '\0')
+	va_list argv;
+	va_start(argv, str);
+	size_t	i;
+
+	i = 0;
+	while (str[i] != '\0')
 	{
-		print(ph);
-		write(1, &ph, sizeof(ph));
+		write(1, &str[i], 1);
+		i++;
 	}
+	va_end(argv);
+	return (i);
 }

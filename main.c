@@ -5,6 +5,6 @@ int	main()
 {
 	char	*ptr = "H";
 
-	printf("Esto es un porcentaje c: %s", ptr);
-	ft_printf("Esto es un porcentaje c: %s", ptr);
+	printf("Esto es un porcentaje c: %s\n", ptr);
+	ft_printf("Esto es un porcentaje c: %c\n", ptr);
 }

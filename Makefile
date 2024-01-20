@@ -21,6 +21,8 @@ CC = gcc
 RM = rm -f
 
 SRC = ft_printf.c \
+      ft_putchar.c \
+      ft_putstr.c \
 
 OBJ = $(SRC:%.c=%.o)
 
