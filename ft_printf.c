@@ -12,46 +12,36 @@
 
 #include "libftprintf.h"
 
-void	print(char const *str, ...)
+void	print(char *str, va_list argv, int i)
 {
-	va_list	argv;
-	va_start(argv, str);
-	size_t	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str == (char *)'%')
-		{
-			if (str == (char *)'c')
-				ft_putchar(va_arg(argv, char *));
-			if ((str + 1) == (char *)'s')//str + 1 no le esta sumando una pocision, esta empezando desde +1
-				ft_putstr(va_arg(argv, char *));
-/*			if ((str + 1) == p)
-				ft_putstr(va_arg(argv, ph));
-			if ((str + 1) == d)
-				ft_putnbr(va_arg(argv, int));
-			if ((str + 1) == i)
-				ft_putnbr(va_arg(argv, int));*/
-		}
-		else
-			NULL;
-		str++;
-	}
-	va_end(argv);
+	i++;
+	if (str[i] == 'c')
+		ft_putchar(va_arg(argv, int));
+	if (str[i] == 's')
+		ft_putstr(va_arg(argv, char *));
+	if (str[i] == 'd' || str[i] == 'i')
+		ft_putnbr(va_arg(argv, int));
+	if (str[i] == 'u')
+		ft_putnbr_base(va_arg(argv, unsigned int), "0123456789", 10);
+	if (str[i] == 'X')
+		ft_putnbr_hex(va_arg(argv, unsigned int), "0123456789ABCDEF", 16);
+	else
+		NULL;
 }
-
 
 int	ft_printf(char const *str, ...)
 {
 	va_list argv;
-	va_start(argv, str);
-	size_t	i;
+	int	i;
 
 	i = 0;
+	va_start(argv, str);
 	while (str[i] != '\0')
 	{
-		write(1, &str[i], 1);
+		if (str[i] == '%')
+			print((char *)str, argv, i);
+		else
+			ft_putchar(str[i]);
 		i++;
 	}
 	va_end(argv);

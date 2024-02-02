@@ -3,8 +3,6 @@
 
 int	main()
 {
-	char	*ptr = "H";
-
-	printf("Esto es un porcentaje c: %s\n", ptr);
-	ft_printf("Esto es un porcentaje c: %c\n", ptr);
+//	printf("Esto es un porcentaje: %c\n", 'h');
+	ft_printf("Esto es un porcentaje: %X\n", 1000);
 }
