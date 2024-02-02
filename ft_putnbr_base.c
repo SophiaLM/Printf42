@@ -1,19 +1,12 @@
 #include "libftprintf.h"
 
-void	ft_putnbr_base(unsigned int n, char *base, int base_size)
+void	ft_putnbr_hex(unsigned long long n, char *base, int base_size)
 {
-	char	result[20];
-	int	i;
-	int	j;
-
-	i = 0;
-	while (n >= base_size)
+	if (n >= base_size)
 	{
-		j = n % base_size;
-		result[i++] = base[j];
-		n = n / base_size;
+		ft_putnbr_hex(n / base_size, base, base_size);
+		ft_putchar(base[n % base_size]);
 	}
-	result[i] = base[n];
-	while (i >= 0)
-		ft_putchar(result[i--]);
+	else
+		ft_putchar(base[n]);
 }

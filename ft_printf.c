@@ -6,7 +6,7 @@
 /*   By: soluna <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 17:46:16 by soluna            #+#    #+#             */
-/*   Updated: 2024/01/14 13:57:49 by soluna           ###   ########.fr       */
+/*   Updated: 2024/02/02 22:43:56 by soluna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ void	print(char *str, va_list argv, int i)
 	if (str[i] == 'u')
 		ft_putnbr_base(va_arg(argv, unsigned int), "0123456789", 10);
 	if (str[i] == 'X')
-		ft_putnbr_hex(va_arg(argv, unsigned int), "0123456789ABCDEF", 16);
+		ft_putnbr_base(va_arg(argv, unsigned int), "0123456789ABCDEF", 16);
+	if (str[i] == 'x')
+		ft_putnbr_base(va_arg(argv, unsigned int), "0123456789abcdef", 16);
 	else
 		NULL;
 }
