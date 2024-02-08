@@ -3,7 +3,7 @@
 
 int	main()
 {
-	int	n = 42;
+	int	n = 1000;
 
-	ft_printf("Esto es un porcentaje: %%\n", n);
+	ft_printf("Esto es un porcentaje: %p\n", n);
 }

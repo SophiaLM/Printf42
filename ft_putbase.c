@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soluna <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/08 19:16:16 by soluna            #+#    #+#             */
-/*   Updated: 2024/02/08 19:19:18 by soluna           ###   ########.fr       */
+/*   Created: 2024/02/08 19:09:12 by soluna            #+#    #+#             */
+/*   Updated: 2024/02/08 19:18:39 by soluna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putnbr(int n, int *count)
+void	ft_putbase(unsigned int n, char *base, unsigned int size, int *count)
 {
-	if (n == -2147483648)
-		*count += write(1, "-2147483648", 11);
-	if (n < 0)
+	if (n >= size)
 	{
-		ft_putchar('-', count);
-		n *= -1;
+		ft_putbase(n / size, base, size, count);
+		ft_putchar(base[n % size], count);
 	}
-	if (n >= 10)
-	{
-		ft_putnbr(n / 10, count);
-		ft_putchar(n % 10 + '0', count);
-	}
-	if (n < 10)
-		ft_putchar(n % 10 + '0', count);
+	else
+		ft_putchar(base[n], count);
 }

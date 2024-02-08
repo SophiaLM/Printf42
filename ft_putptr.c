@@ -1,7 +1,19 @@
-#include "libftprintf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: soluna <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/08 19:08:55 by soluna            #+#    #+#             */
+/*   Updated: 2024/02/08 20:35:09 by soluna           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void	ft_putptr(void *ptr)
+#include "ft_printf.h"
+
+void	ft_putptr(void *ptr, int *count)
 {
-	write(1, "0X", 2);
-	ft_putnbr_base((unsigned long)ptr, "0123456789abcdef", 16);
+	*count += write(1, "0X", 2);
+	ft_putbase((unsigned long)ptr, "0123456789abcdef", 16, count);
 }

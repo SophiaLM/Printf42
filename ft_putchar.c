@@ -6,11 +6,11 @@
 /*   By: soluna <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 17:46:34 by soluna            #+#    #+#             */
-/*   Updated: 2024/01/13 21:03:27 by soluna           ###   ########.fr       */
+/*   Updated: 2024/02/08 19:18:51 by soluna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 void	ft_putchar(int str, int *count)
 {

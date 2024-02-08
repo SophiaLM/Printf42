@@ -6,19 +6,24 @@
 /*   By: soluna <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 17:47:11 by soluna            #+#    #+#             */
-/*   Updated: 2024/01/13 21:25:27 by soluna           ###   ########.fr       */
+/*   Updated: 2024/02/08 20:23:10 by soluna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 void	ft_putstr(char *str, int *count)
 {
 	int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	if (!str)
+		ft_putstr("(null)", count);
+	else
 	{
-		*count += write(1, &str[i++], 1);
+		while (str[i] != '\0')
+		{
+			*count += write(1, &str[i++], 1);
+		}
 	}
 }
