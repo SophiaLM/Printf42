@@ -1,12 +1,12 @@
 #include "libftprintf.h"
 
-void	ft_putnbr_hex(unsigned long long n, char *base, int base_size)
+void	ft_putnbr_base(unsigned int n, char *base, unsigned int size, int *count)
 {
-	if (n >= base_size)
+	if (n >= size)
 	{
-		ft_putnbr_hex(n / base_size, base, base_size);
-		ft_putchar(base[n % base_size]);
+		ft_putnbr_base(n / size, base, size, count);
+		ft_putchar(base[n % size], count);
 	}
 	else
-		ft_putchar(base[n]);
+		ft_putchar(base[n], count);
 }

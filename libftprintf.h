@@ -18,9 +18,10 @@
 # include <unistd.h>
 
 int		ft_printf(char const*, ...);
-void	ft_putchar(int str);
-void	ft_putstr(char *str);
-void	ft_putnbr(int c);
-void	ft_putnbr_base(unsigned int n, char *base, int base_size);
+void	ft_putchar(int str, int *count);
+void	ft_putstr(char *str, int *count);
+void	ft_putnbr(int c, int *count);
+void	ft_putnbr_base(unsigned int n, char *base, unsigned int base_size, int *count);
+void	ft_putptr(unsigned long *n, int *count);
 
 #endif
