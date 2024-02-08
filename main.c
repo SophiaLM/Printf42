@@ -3,7 +3,9 @@
 
 int	main()
 {
-	int	n = 1000;
+	void *n = "HOLA";
 
-	ft_printf("Esto es un porcentaje: %p\n", n);
+	ft_printf("Mine: %p\n", n);
+	printf("Orig: %p\n", n);
+	return 0;
 }

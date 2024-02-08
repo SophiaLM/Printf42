@@ -15,5 +15,5 @@
 void	ft_putptr(void *ptr, int *count)
 {
 	*count += write(1, "0X", 2);
-	ft_putbase((unsigned long)ptr, "0123456789abcdef", 16, count);
+	ft_putbaseptr(ptr, "0123456789abcdef", 16, count);
 }

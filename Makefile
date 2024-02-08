@@ -26,6 +26,7 @@ SRC = ft_printf.c \
       ft_putnbr.c \
       ft_putbase.c \
       ft_putptr.c \
+      ft_putbaseptr.c
 
 OBJ = $(SRC:%.c=%.o)
 
