@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soluna <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/11 17:47:27 by soluna            #+#    #+#             */
-/*   Updated: 2024/02/09 19:33:45 by soluna           ###   ########.fr       */
+/*   Created: 2024/02/08 19:16:16 by soluna            #+#    #+#             */
+/*   Updated: 2024/02/08 19:19:18 by soluna           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-
-int		ft_printf(char const *str, ...);
-void	ft_putchar(int str, int *count);
-void	ft_putstr(char *str, int *count);
-void	ft_putnbr(int c, int *count);
-void	ft_putbase(unsigned int n, char *base, unsigned int size, int *count);
-void	ft_putptr(void *ptr, int *count);
-
-#endif
+void	ft_putnbr(int n, int *count)
+{
+	if (n == -2147483648)
+	{
+		ft_putstr("-2147483648", count);
+		return ;
+	}
+	if (n < 0)
+	{
+		ft_putchar('-', count);
+		n *= -1;
+	}
+	if (n >= 10)
+	{
+		ft_putnbr(n / 10, count);
+		ft_putchar(n % 10 + '0', count);
+	}
+	if (n < 10)
+		ft_putchar(n % 10 + '0', count);
+}
