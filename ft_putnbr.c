@@ -15,7 +15,10 @@
 void	ft_putnbr(int n, int *count)
 {
 	if (n == -2147483648)
-		*count += write(1, "-2147483648", 11);
+	{
+		ft_putstr("-2147483648", count);
+		return ;
+	}
 	if (n < 0)
 	{
 		ft_putchar('-', count);

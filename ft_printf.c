@@ -19,7 +19,7 @@ void	print(char const *str, va_list argv, int i, int *count)
 	if (str[i] == 's')
 		ft_putstr(va_arg(argv, char *), count);
 	if (str[i] == 'p')
-		ft_putptr(va_arg(argv, void *), count);
+		ft_putptr(va_arg(argv, void *), "0123456789abcdef", 16, count);
 	if (str[i] == 'd' || str[i] == 'i')
 		ft_putnbr(va_arg(argv, int), count);
 	if (str[i] == 'u')

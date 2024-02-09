@@ -22,7 +22,6 @@ void	ft_putchar(int str, int *count);
 void	ft_putstr(char *str, int *count);
 void	ft_putnbr(int c, int *count);
 void	ft_putbase(unsigned int n, char *base, unsigned int size, int *count);
-void	ft_putptr(void *ptr, int *count);
-void	ft_putbaseptr(void *n, char *base, unsigned int size, int *count);
+void	ft_putptr(void *n, char *base, unsigned int size, int *count);
 
 #endif
